@@ -6,12 +6,27 @@
 <script>
   (function () {
     var params = new URLSearchParams(location.search);
-    if (params.has('v')) {
-      params.delete('v');
-      var qs = params.toString();
-      var clean = location.pathname + (qs ? ('?' + qs) : '') + location.hash;
-      location.replace(clean);
+    if (!params.has('v')) return;
+
+    params.delete('v');
+    var qs = params.toString();
+    var cleanPath = location.pathname + (qs ? ('?' + qs) : '') + location.hash;
+    var cleanAbs = location.origin + cleanPath;
+
+    try {
+      history.replaceState(null, '', cleanPath);
+    } catch (e) {}
+
+    if (location.href !== cleanAbs) {
+      location.href = cleanPath;
+      return;
     }
+
+    setTimeout(function () {
+      if ((new URLSearchParams(location.search)).has('v')) {
+        location.replace(cleanPath);
+      }
+    }, 50);
   })();
 </script>
 <title>If You Had Never Been Born</title>
