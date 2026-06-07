@@ -3,6 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function () {
+    var params = new URLSearchParams(location.search);
+    if (params.has('v')) {
+      params.delete('v');
+      var qs = params.toString();
+      var clean = location.pathname + (qs ? ('?' + qs) : '') + location.hash;
+      history.replaceState(null, '', clean);
+    }
+  })();
+</script>
 <title>If You Had Never Been Born</title>
 <meta name="storybook-version" content="20260607-3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
