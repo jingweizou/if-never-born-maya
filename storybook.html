@@ -10,7 +10,7 @@
       params.delete('v');
       var qs = params.toString();
       var clean = location.pathname + (qs ? ('?' + qs) : '') + location.hash;
-      history.replaceState(null, '', clean);
+      location.replace(clean);
     }
   })();
 </script>
