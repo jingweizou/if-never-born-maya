@@ -38,6 +38,33 @@
   .rule{width:84px; height:2px; margin:30px auto 8px;
         background:linear-gradient(90deg,transparent,var(--gold),transparent);}
 
+  .editor{
+    margin:18px auto 30px;
+    padding:16px;
+    border:1px solid var(--line);
+    border-radius:14px;
+    background:rgba(255,255,255,.66);
+  }
+  .editor h3{margin:0 0 10px; font-size:16px; color:var(--soft);}
+  .editor-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+  .editor label{font-size:13px; color:var(--soft); display:block; margin-bottom:4px;}
+  .editor input,.editor textarea{
+    width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:10px;
+    font:inherit; font-size:15px; color:var(--ink); background:#fffdf9;
+  }
+  .editor textarea{min-height:72px; resize:vertical;}
+  .editor .full{grid-column:1 / -1;}
+  .editor .actions{display:flex; gap:10px; margin-top:10px;}
+  .editor button{
+    border:0; border-radius:10px; padding:10px 14px; cursor:pointer;
+    background:linear-gradient(90deg,#b9802f,#d98a7b 60%,#c9963f); color:#fff; font-weight:600;
+  }
+  .editor button.secondary{background:#e8ddcc; color:#5e5048;}
+
   /* story */
   .story-text p{margin:0 0 1.35em; text-align:justify;}
   .story-text p:first-letter{}
@@ -75,24 +102,117 @@
     <header class="cover">
       <div class="stars">· ✦ · ✧ · ✦ ·</div>
       <h1>If You Had Never Been Born</h1>
-      <p class="subtitle">A parallel-universe fairy tale for Maya, age 9</p>
+      <p class="subtitle" id="storySubtitle">A parallel-universe fairy tale for Maya, age 9</p>
       <div class="rule"></div>
     </header>
 
     <main>
-      <div class="story-text"><p>In a small town where the rooftops leaned together like friends sharing secrets, there lived a girl named <strong>Maya</strong>. She was nine years old, with curly chestnut hair she wore in two short pigtails, and a mustard-yellow raincoat she loved so much she wore it even on sunny days, just in case.</p><p>Maya thought she was the most ordinary girl in the world. <em>I'm too small to matter</em>, she told herself, the way small people sometimes do. But one quiet evening, as the last star blinked awake, something gentle and glowing drifted down through her window. It was the <strong>Keeper of Maybes</strong> — a soft, translucent spirit who looked after all the worlds that could have been.</p><p>“Maya,” the Keeper whispered, its voice like a lullaby, “would you like to see the world as it would be — if you had never been born at all?” Maya, who was curious about everything, took its glowing hand.</p></div>
+      <section class="editor">
+        <h3>Customize this story</h3>
+        <div class="editor-grid">
+          <div>
+            <label for="inputName">Name</label>
+            <input id="inputName" type="text" value="Maya" />
+          </div>
+          <div>
+            <label for="inputAge">Age</label>
+            <input id="inputAge" type="text" value="9" />
+          </div>
+          <div class="full">
+            <label for="inputSubtitle">Subtitle</label>
+            <input id="inputSubtitle" type="text" value="A parallel-universe fairy tale for Maya, age 9" />
+          </div>
+          <div class="full">
+            <label for="inputDedication">Dedication</label>
+            <textarea id="inputDedication">Maya — you are not too small to matter. You came, and the world is warmer for it. Always.</textarea>
+          </div>
+        </div>
+        <div class="actions">
+          <button id="applyBtn">Apply Changes</button>
+          <button id="resetBtn" class="secondary">Reset</button>
+        </div>
+      </section>
+      <div class="story-text"><p id="storyP1">In a small town where the rooftops leaned together like friends sharing secrets, there lived a girl named <strong id="storyName1">Maya</strong>. She was nine years old, with curly chestnut hair she wore in two short pigtails, and a mustard-yellow raincoat she loved so much she wore it even on sunny days, just in case.</p><p id="storyP2">Maya thought she was the most ordinary girl in the world. <em>I'm too small to matter</em>, she told herself, the way small people sometimes do. But one quiet evening, as the last star blinked awake, something gentle and glowing drifted down through her window. It was the <strong>Keeper of Maybes</strong> — a soft, translucent spirit who looked after all the worlds that could have been.</p><p id="storyP3">“Maya,” the Keeper whispered, its voice like a lullaby, “would you like to see the world as it would be — if you had never been born at all?” Maya, who was curious about everything, took its glowing hand.</p></div>
 <figure class="story-illus"><img src="vignette1.png" alt="The morning Maya shared her sandwich with the boy who had no one" loading="lazy"><figcaption>The morning Maya shared her sandwich with the boy who had no one</figcaption></figure>
 <div class="story-text"><p>The Keeper carried her to a school that looked just like hers. By the door stood a small boy named <strong>Theo</strong>, brand new and trembling, tears sliding down his cheeks. The bell rang. Children rushed past him like a river around a stone, and not one of them stopped.</p><p>“In your world,” the Keeper said softly, “you knelt beside this boy on his first day. You gave him half your sandwich and asked his name. He stopped crying. By lunchtime you were best friends — and you stayed friends for years.”</p><p>Maya watched the other Theo eat alone, his half-sandwich never shared, his laughter never learned. <em>The empty seat beside him stayed empty.</em> And because no one taught him that the world could be kind, this Theo grew up a little colder, and never passed the kindness on. Maya's heart ached. “All that,” she breathed, “from half a sandwich?” The Keeper only smiled.</p></div>
 <figure class="story-illus"><img src="vignette2.png" alt="The rainy night Maya wrapped a shivering kitten in her yellow coat" loading="lazy"><figcaption>The rainy night Maya wrapped a shivering kitten in her yellow coat</figcaption></figure>
 <div class="story-text"><p>Next they drifted to a rain-soaked street, where water gurgled down into a storm drain. From deep inside came a tiny, desperate cry. A soaked kitten clung to the edge, too weak to climb.</p><p>“On this night, in your world,” said the Keeper, “you heard that cry. You reached in, lifted the kitten out, and wrapped it warm inside your yellow raincoat. You named her Pumpkin and loved her for fourteen years.”</p><p>But in this world Maya was not there to hear. The rain kept falling. The little cry grew fainter. Maya turned away, her eyes stinging — and then she understood something larger: Pumpkin would have curled, years later, in the lap of Maya's lonely grandmother, purring her through quiet winters. <em>Without the kitten, that warmth never came.</em> So many small lights, Maya saw, were strung together like beads on a single thread.</p></div>
 <figure class="story-illus"><img src="vignette3.png" alt="The Keeper of Maybes, and the sky relighting star by star" loading="lazy"><figcaption>The Keeper of Maybes, and the sky relighting star by star</figcaption></figure>
 <div class="story-text"><p>The Keeper showed her one last place: a hospital ward, hushed and grey. “Here,” it said, “you once drew a get-well card for every single patient on your grandmother's floor. Fourteen cards, with crooked suns and lopsided hearts. The nurses taped them to the windows. People who felt forgotten remembered they were not.” In this world, the windows were bare, and the grey stayed grey.</p><p>“I didn't know,” Maya whispered. “I thought I was too small to matter.”</p><p>The Keeper gathered her gently and carried her home. And as they rose, the dark sky above the sleeping town began to <strong>change</strong>. One by one, warm golden stars flickered back to life — here was Theo's laughter, returned; here was Pumpkin's purr; here were fourteen crooked suns glowing in hospital windows. Each kindness Maya had ever given lit up like a lamp being switched on across the whole wide night.</p><p>“You see, little one,” said the Keeper of Maybes, setting her softly back into bed, “a life is not measured by how big it is. It is measured by the warmth it leaves in others. And you, <strong>Maya</strong>, leave a great deal of warmth indeed.”</p><p>Maya closed her eyes, and for the first time she fell asleep knowing the truth: the world is brighter because she is in it.</p></div>
-      <div class="dedication"><p>Maya — you are not too small to matter. You came, and the world is warmer for it. Always.</p></div>
+      <div class="dedication"><p id="storyDedication">Maya — you are not too small to matter. You came, and the world is warmer for it. Always.</p></div>
     </main>
 
     <footer>
-      <p>Lovingly crafted for you · Maya <span class="heart">♥</span></p>
+      <p>Lovingly crafted for you · <span id="storyFooterName">Maya</span> <span class="heart">♥</span></p>
     </footer>
   </div>
+  <script>
+    (function () {
+      const defaults = {
+        name: 'Maya',
+        age: '9',
+        subtitle: 'A parallel-universe fairy tale for Maya, age 9',
+        dedication: 'Maya — you are not too small to matter. You came, and the world is warmer for it. Always.'
+      };
+
+      const els = {
+        inputName: document.getElementById('inputName'),
+        inputAge: document.getElementById('inputAge'),
+        inputSubtitle: document.getElementById('inputSubtitle'),
+        inputDedication: document.getElementById('inputDedication'),
+        subtitle: document.getElementById('storySubtitle'),
+        ded: document.getElementById('storyDedication'),
+        footerName: document.getElementById('storyFooterName'),
+        p1: document.getElementById('storyP1'),
+        p2: document.getElementById('storyP2'),
+        p3: document.getElementById('storyP3'),
+        applyBtn: document.getElementById('applyBtn'),
+        resetBtn: document.getElementById('resetBtn')
+      };
+
+      const originals = {
+        p1: els.p1.innerHTML,
+        p2: els.p2.innerHTML,
+        p3: els.p3.innerHTML
+      };
+
+      function applyChanges() {
+        const name = (els.inputName.value || defaults.name).trim();
+        const age = (els.inputAge.value || defaults.age).trim();
+        const subtitle = (els.inputSubtitle.value || defaults.subtitle).trim();
+        const dedication = (els.inputDedication.value || defaults.dedication).trim();
+
+        els.subtitle.textContent = subtitle;
+        els.footerName.textContent = name;
+        els.ded.textContent = dedication;
+
+        els.p1.innerHTML = originals.p1
+          .replace('<strong id="storyName1">Maya</strong>', '<strong id="storyName1">' + name + '</strong>')
+          .replace('She was nine years old', 'She was ' + age + ' years old');
+
+        const rx = /\bMaya\b/g;
+        els.p2.innerHTML = originals.p2.replace(rx, name);
+        els.p3.innerHTML = originals.p3.replace(rx, name);
+      }
+
+      function resetChanges() {
+        els.inputName.value = defaults.name;
+        els.inputAge.value = defaults.age;
+        els.inputSubtitle.value = defaults.subtitle;
+        els.inputDedication.value = defaults.dedication;
+
+        els.p1.innerHTML = originals.p1;
+        els.p2.innerHTML = originals.p2;
+        els.p3.innerHTML = originals.p3;
+
+        els.subtitle.textContent = defaults.subtitle;
+        els.ded.textContent = defaults.dedication;
+        els.footerName.textContent = defaults.name;
+      }
+
+      els.applyBtn.addEventListener('click', applyChanges);
+      els.resetBtn.addEventListener('click', resetChanges);
+    })();
+  </script>
 </body>
 </html>
